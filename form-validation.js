@@ -1,10 +1,9 @@
-function validate(){
+function validateUsername()
+{
   //Grab the user's input and store in variables
   var userEntered = document.getElementById("user").value;
   var usernameLength = userEntered.length;
 
-  console.log(usernameLength); 
-  
   if (usernameLength < 6)
   { 
     var success = document.getElementById("usernameGroup").classList.contains("has-success");
@@ -44,7 +43,10 @@ function validate(){
     }
     document.getElementById("usernameGroup").classList.add("has-success");
   }
+}
 
+function validatePassword()
+{
   var passEntered = document.getElementById("pass").value;
   var passLowered = passEntered.toLowerCase();
 
@@ -100,4 +102,11 @@ function validate(){
     }
     document.getElementById("passwordGroup").classList.add("has-success");
   }
+}
+
+function register()
+{
+  var userEntered = document.getElementById("user").value;
+  var passEntered = document.getElementById("pass").value;
+  alert ("Username: " + userEntered + "\nPassword: " + passEntered);
 }
