@@ -2,9 +2,16 @@ function validate(){
   //Grab the user's input and store in variables
   var userEntered = document.getElementById("user").value;
   var usernameLength = userEntered.length;
+
+  console.log(usernameLength); 
   
   if (usernameLength < 6)
-  {
+  { 
+    var success = document.getElementById("usernameGroup").classList.contains("has-success");
+    if (success == true)
+    {
+      document.getElementById("usernameGroup").classList.remove("has-success");
+    }
     //Show message that there is an error with the username...
     document.getElementById("usernameError").innerHTML="Username must have at least 6 characters.";
     document.getElementById("usernameError").classList.remove("hidden-message");
@@ -14,6 +21,11 @@ function validate(){
   }
   else if (userEntered.indexOf(' ') > 0)
   {
+    var success = document.getElementById("usernameGroup").classList.contains("has-success");
+    if (success == true)
+    {
+      document.getElementById("usernameGroup").classList.remove("has-success");
+    }
     //Show message that there is an error with the username...
     document.getElementById("usernameError").innerHTML="Username must NOT contain any spaces.";
     document.getElementById("usernameError").classList.remove("hidden-message");
@@ -23,6 +35,13 @@ function validate(){
   }
   else
   {
+    var error = document.getElementById("usernameGroup").classList.contains("has-error");
+    if (error == true)
+    {
+      document.getElementById("usernameError").classList.remove("shown-message");
+      document.getElementById("usernameGroup").classList.remove("has-error");
+      document.getElementById("usernameError").classList.add("hidden-message");
+    }
     document.getElementById("usernameGroup").classList.add("has-success");
   }
 
@@ -31,6 +50,11 @@ function validate(){
 
   if (passLowered == "password")
   {
+    var success = document.getElementById("passwordGroup").classList.contains("has-success");
+    if (success == true)
+    {
+      document.getElementById("passwordGroup").classList.remove("has-success");
+    }
     //Show message that there is an error with the password...
     document.getElementById("passwordError").innerHTML="Password must NOT be the word \"password\".";
     document.getElementById("passwordError").classList.remove("hidden-message");
@@ -40,6 +64,11 @@ function validate(){
   }
   else if (passEntered == userEntered)
   {
+    var success = document.getElementById("passwordGroup").classList.contains("has-success");
+    if (success == true)
+    {
+      document.getElementById("passwordGroup").classList.remove("has-success");
+    }
     //Show message that there is an error with the password...
     document.getElementById("passwordError").innerHTML="Password must NOT be the same as the Username.";
     document.getElementById("passwordError").classList.remove("hidden-message");
@@ -49,6 +78,11 @@ function validate(){
   }
   else if (passEntered.length < 6 || passEntered.length > 20)
   {
+    var success = document.getElementById("passwordGroup").classList.contains("has-success");
+    if (success == true)
+    {
+      document.getElementById("passwordGroup").classList.remove("has-success");
+    }
     document.getElementById("passwordError").innerHTML="Password must be between 6-20 characters.";
     document.getElementById("passwordError").classList.remove("hidden-message");
     document.getElementById("passwordError").classList.add("shown-message");
@@ -57,6 +91,13 @@ function validate(){
   }
   else
   {
+    var error = document.getElementById("passwordGroup").classList.contains("has-error");
+    if (error == true)
+    {
+      document.getElementById("passwordError").classList.remove("shown-message");
+      document.getElementById("passwordGroup").classList.remove("has-error");
+      document.getElementById("passwordError").classList.add("hidden-message");
+    }
     document.getElementById("passwordGroup").classList.add("has-success");
   }
 }
